@@ -162,6 +162,12 @@ body {
     width: 100%;
 }
 
+#subscribe div {
+    display: table;
+    width: auto;
+    margin: auto auto;
+}
+
 #subscribe h2 {
     color: #fff;
     text-align: center;
@@ -174,11 +180,6 @@ body {
 .form-inline {
     width: auto;
     margin: auto auto;
-}
-
-.form-inline {
-    width: 80%;
-    /*margin-left: 10%;*/
 }
 
 .form-inline div {
