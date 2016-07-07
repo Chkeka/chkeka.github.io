@@ -5,47 +5,101 @@ body {
 #header {
     height: 50px;
     background-color: white;
-    border-bottom: 1px solid #47525d;
+    /*border-bottom: 1px solid #47525d;*/
+}
+
+#header .row {
+    height: 100%;
 }
 
 #header .row div {
     height: 100%;
-    top: 0;
+    /*top: 0;*/
 }
 
-#header .row .list-inline {
-    margin-top: 0;
+#header .col-md-4>.btn-group {
+    /*margin-top: 0;*/
     height: 100%;
 }
 
-#header .row .list-inline li {
-    height: 100%;
-}
-
-.dropdown {
-    width: 100%;
-}
-
-#header .row .list-inline li button {
-    height: 100%;
-    width: 100%;
-}
-
-#header .row .list-inline li {
-    top: 0;
-}
-
-#header div img {
+#header .col-md-2 img {
     max-height: 23px;
-    vertical-align: middle;
+    margin-left: 40px;
+    margin-top: 15px;
 }
 
-.list-inline li {
-    /*width: 33%;*/
-}
-
-.dropdown button {
+.btn-group button {
+    height: 50px;
     border: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.col-md-4 .btn-group .btn-group .btn-default:hover,
+.col-md-4 .btn-group .btn-group .open>.dropdown-toggle .btn-default:focus {
+    background: #f2f2f2;
+    box-shadow: none;
+}
+
+.col-md-4 .btn-group .btn-group.open .dropdown-toggle {
+    background: #f2f2f2;
+    box-shadow: none;
+}
+
+.col-md-4 .btn-group .btn-group .dropdown-menu {
+    border-radius: 0;
+    padding: 0 0;
+    margin-top: 0;
+    background: #f2f2f2;
+    box-shadow: none;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+}
+
+.dropdown-menu li a {
+    height: 50px;
+}
+
+.col-md-4 .btn-group .btn-group .dropdown-menu li a:hover {
+    background: #e5e5e5;
+}
+
+#search-wrapper {
+    position: absolute;
+    height: 50px;
+}
+
+.col-md-3 input {
+    position: relative;
+    top: 7px;
+    border: 1px solid #A9A9A9;
+    width: 244px;
+    height: 36px;
+    padding: 0 10px;
+}
+
+.col-md-3 input:focus {
+    border: 1px solid #A9A9A9;
+    box-shadow: none;
+}
+
+#search-wrapper button {
+    position: relative;
+    top: 13px;
+    right: 35px;
+    height: 24px;
+    width: 24px;
+    background: url('../img/search.png') no-repeat;
+    border: none;
+}
+
+.ico-cart {
+    display: inline-block;
+    vertical-align: middle;
+    height: 24px;
+    width: 24px;
+    background-image: url('../img/shopping_cart.png');
+    background-size: cover;
 }
 
 .banner {
@@ -118,12 +172,13 @@ body {
 }
 
 .form-inline {
-    width: 100%;
+    width: auto;
+    margin: auto auto;
 }
 
 .form-inline {
-	width: 100%;
-    margin-left: 10%;
+    width: 80%;
+    /*margin-left: 10%;*/
 }
 
 .form-inline div {
