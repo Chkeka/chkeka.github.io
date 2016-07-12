@@ -2,6 +2,8 @@ body {
     overflow-x: hidden;
 }
 
+/* header ------------------------------------------------------------------------------------------------------------*/
+
 #header {
     height: 50px;
     background-color: white;
@@ -102,6 +104,8 @@ body {
     background-size: cover;
 }
 
+/* banner ---------------------------------------------------------------------------------------------------------*/
+
 .banner {
     background-color: rgba(239, 239, 234, 0.5);
     font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
@@ -155,6 +159,8 @@ body {
 .banner .text, .banner .image {
     display: inline;
 }
+
+/* subscribe -----------------------------------------------------------------------------------------------------*/
 
 #subscribe {
     height: 500px;
@@ -269,4 +275,311 @@ body {
 
 #subscribe h6 a:hover {
     color: #fff;
+}
+
+/* container ---------------------------------------------------------------------------------------------------*/
+
+#container {
+    width: 100%;
+}
+
+#container ul {
+    margin: 0;
+    list-style: none;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+}
+
+#container ul li {
+    /*display: inline;*/
+    float: left;
+    width: 33.33333333%;
+    background: #282828;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+#container ul:before, #conteiner ul li:before {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+}
+
+#container ul:after, #conteiner ul li:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+}
+
+#container ul li a {
+    text-decoration: none;
+}
+
+#valkyrie a div:first-of-type {
+    background-image: url("../img/eve-valkyrie.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    opacity: .3;
+    text-align: center;
+    transition: 
+        transform .3s,
+        opacity .3s;
+    width: 100%;
+}
+
+#lucky a div:first-of-type {
+    background-image: url("../img/luckys-tale.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    opacity: .3;
+    text-align: center;
+    transition: 
+        transform .3s,
+        opacity .3s;
+    width: 100%;
+}
+
+#touch a div:first-of-type {
+    background-image: url("../img/touch.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    opacity: .3;
+    text-align: center;
+    transition: 
+        transform .3s,
+        opacity .3s;
+    width: 100%;
+}
+
+#container ul li a div:nth-of-type(2) {
+    box-sizing: border-box;
+    padding: 0 32px;
+    position: absolute;
+    top: 50%;
+    transform:
+        translate(0, -50%);
+    width: 100%;
+    display: block;
+}
+
+#container ul li a div:nth-of-type(2) h4 {
+    margin: 0;
+    color: #a4a5a6;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 16px;
+    text-align: center;
+    font: "Oculus Sans", "Arial", "Helvetica", sans-serif;
+}
+
+#container ul li a div:nth-of-type(2) h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: center;
+    font: "Oculus Sans", "Arial", "Helvetica", sans-serif;
+}
+
+/* footer ----------------------------------------------------------------------------------------------------*/
+
+#footer {
+    min-width: 1024px;
+    font-size: 12px;
+    line-height: 1.66667;
+    font-weight: 400;
+    letter-spacing: normal;
+    background-color: #f2f2f2;
+    color: #666;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial",sans-serif;
+    direction: ltr;
+    text-align: left;
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+@media only screen and (max-width: 1044px) {
+    #footer {
+        min-width: 320px;
+    }
+}
+
+#footer * {
+    font-size: 1em;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: inherit;
+}
+
+#f-content {
+    margin: 0 auto;
+    padding: 0 22px;
+    max-width: 980px;
+    height: 100%;
+}
+
+#navigation {
+    padding-top: 32px;
+    font-size: 12px;
+    line-height: 1.66667;
+    font-weight: 400;
+    letter-spacing: normal;
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: auto;
+}
+
+#navigation:before, #navigation:after {
+    content: ' ';
+    display: table;
+}
+
+#navigation:after {
+    clear: both;
+}
+
+.directory-column {
+    width: 20%;
+    position: relative;
+    z-index: 1;
+    min-height: 2px;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.column-section {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    min-height: 2px;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.section-title {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.66667;
+    font-weight: 600;
+    letter-spacing: normal;
+    margin: 0;
+}
+
+.section-list {
+    margin-right: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.section-link {
+    color: #666;
+    text-decoration: none;
+}
+
+.section-link:hover {
+    color: #333;
+}
+
+section {
+    color: #999;
+    padding: 20px 0 24px;
+    border-top: none;
+    display: block;
+    height: auto;
+}
+
+#shop {
+    border-bottom: 1px solid #e3e3e3;
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+    max-height: 9999px;
+}
+
+#shop a {
+    color: #08c;
+    text-decoration: none;
+}
+
+section a:hover, #shop a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+#locale {
+    float: right;
+}
+
+#locale a {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+    display: inline;
+    color: #666;
+    text-decoration: none;
+}
+
+#flag {
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    /*display: inline-block;*/
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/16.png");
+    padding-right: 5px;
+    background-position: left center;
+    float: left;
+    margin-top: 1px;
+}
+
+#legal {
+    color: #999;
+}
+
+#copyright {
+    margin-right: 26px;
+    float: left;
+}
+
+#legal-links {
+    margin-right: 26px;
+    float: left;
+    color: #999;
+}
+
+.legal-link {
+    border-right: 1px solid #d6d6d6;
+    margin-right: 10px;
+    padding-right: 12px;
+    color: #666;
+    
 }
