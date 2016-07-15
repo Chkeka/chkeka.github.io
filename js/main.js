@@ -23,11 +23,16 @@ $(document).ready(function() {
     $('#subscribe .form-group input').on('click', function() {
         var inputField = $(this);
         inputField.closest('.form-group').find('label').css('opacity', '.5');
-        $(document).click(function(event){
-           if (!$(event.target).is(inputField)) $(inputField).closest('.form-group').find('label').css('opacity', '1'); 
-        });
         inputField.on('input', function() {
             inputField.closest('.form-group').find('label').css('visibility', 'hidden');
+        });
+        $(document).click(function(event){
+            if (!$(event.target).is(inputField)) {
+                if (inputField.val() == "") {
+                    $(inputField).closest('.form-group').find('label').css('visibility', 'visible');
+                    $(inputField).closest('.form-group').find('label').css('opacity', '1');
+                }
+            }
         });
     });
 });
