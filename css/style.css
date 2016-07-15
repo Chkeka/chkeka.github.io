@@ -19,15 +19,20 @@ body {
     /*top: 0;*/
 }
 
-#header .col-md-4>.btn-group {
+#header .col-xs-4>.btn-group {
     /*margin-top: 0;*/
     height: 100%;
 }
 
-#header .col-md-2 img {
+#header .col-xs-2 img {
     max-height: 23px;
     margin-left: 40px;
     margin-top: 15px;
+}
+
+.row .btn {
+    border-radius: 0;
+    border: none;
 }
 
 .btn-group button {
@@ -37,18 +42,101 @@ body {
     border-bottom-left-radius: 0;
 }
 
-.col-md-4 .btn-group .btn-group .btn-default:hover,
-.col-md-4 .btn-group .btn-group .open>.dropdown-toggle .btn-default:focus {
+.dropdown .btn-primary {
+    background-color: #fff;
+    color: #333;
+}
+
+.col-xs-4 .btn-group .btn-group .btn-primary:hover,
+.col-xs-4 .btn-group .btn-group .open>.btn-primary:focus {
+    background: #f2f2f2;
+    box-shadow: none;
+    color: #333;
+    border: none;
+}
+
+.col-xs-4 .btn-group .btn-group.open .btn-primary {
     background: #f2f2f2;
     box-shadow: none;
 }
 
-.col-md-4 .btn-group .btn-group.open .dropdown-toggle {
+.col-xs-4 .btn-group .btn-group .dropdown>.dropdown-menu {
+    position: absolute;
+    border-radius: 0;
+    padding: 0 0 8px;
+    margin-top: 0;
     background: #f2f2f2;
+    box-shadow: none;
+    border-top: none;
+    border-left: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+#store {
+    width: 200px;
+    height: 548px;
+}
+
+.col-xs-4 .btn-group .btn-group:first-of-type .dropdown>.dropdown-menu li {
+    height: 10%;
+}
+
+.dropdown .dropdown-menu li a {
+    /*height: 50px;*/
+    padding: 15px 20px 15px 20px;
+}
+
+/*.dropdown-menu {
+    width: 200px;
+}*/
+
+.col-xs-4 .btn-group .btn-group:first-of-type .dropdown>.dropdown-menu .dropdown-submenu>.dropdown-menu {
+    background: #e5e5e5;
+    /*height: 548px;*/
+    position: absolute;
+    width: 300px;
+    /*top: -56px;*/
+    left: 198px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0;
     box-shadow: none;
 }
 
-.col-md-4 .btn-group .btn-group .dropdown-menu {
+.col-xs-4 .btn-group .btn-group:nth-of-type(2) .dropdown>.dropdown-menu .dropdown-submenu>.dropdown-menu {
+    background: #e5e5e5;
+    /*height: 548px;*/
+    position: absolute;
+    width: 300px;
+    top: -56px;
+    left: 218px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.dropdown-submenu>.dropdown-menu li a:hover {
+    background: #7F7F7F;
+}
+
+.btn-group .btn-group:nth-of-type(2) .dropdown>.dropdown-menu {
+    width: 220px;
+    height: 274px;
+}
+
+.col-xs-4 .btn-group .btn-group:nth-of-type(2) .dropdown>.dropdown-menu li {
+    /*height: 20%;*/
+}
+
+.col-xs-4 .btn-group .btn-group .dropdown-menu li a:hover {
+    background: #e5e5e5;
+}
+
+.col-xs-4 .btn-group .btn-group .dropdown-menu li .btn-group .btn .dropdown-menu {
     border-radius: 0;
     padding: 0 0;
     margin-top: 0;
@@ -62,46 +150,155 @@ body {
     height: 50px;
 }
 
-.col-md-4 .btn-group .btn-group .dropdown-menu li a:hover {
+.col-xs-4 .btn-group .btn-group .dropdown-menu li a:hover {
     background: #e5e5e5;
 }
+
+:focus {
+    outline: none;
+}
+
+/*------------------------------------------------------------*/
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    /*top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;*/
+    /*-webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;*/
+    /*visibility: hidden;*/
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+/*.dropdown-submenu.open {
+    display: block;
+}*/
+
+.dropdown-submenu>a:after {
+    /*display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;*/
+    /*content: "";
+    display: block;
+    width: 1em;
+    height: 1em;
+    font-family: "shell-icons";
+    font-style: normal;
+    line-height: 1.1;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    top: 21px;
+    right: 28px;
+    font-size: 6px;
+    font-weight: bold;*/
+}
+
+/*@media (min-width: 899px) {
+    .dropdown-submenu>a:after {
+        top: 24px;
+        right: 12px;
+        position: static;
+        display: inline-block;
+        margin-left: .3em;
+        vertical-align: middle;
+    }
+}*/
+
+/*.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}*/
+
+.dropdown .glyphicon {
+    float: right;
+    font-size: 7px;
+    color: #999;
+    font-weight: 100;
+    display: inline;
+    top: 8px;
+    /*right: 28px;*/
+    width: 1em;
+    height: 1em;
+    margin-left: 5px;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    /*-webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;*/
+}
+/*----------------------------------*/
 
 #search-wrapper {
     position: absolute;
     height: 50px;
+    width: 280px;
 }
 
-.col-md-3 input {
+.col-xs-3 input {
     position: relative;
     top: 7px;
     border: 1px solid #A9A9A9;
-    width: 244px;
+    width: 280px;
     height: 36px;
     padding: 0 10px;
 }
 
-.col-md-3 input:focus {
+.col-xs-3 input:focus {
     border: 1px solid #A9A9A9;
     box-shadow: none;
 }
 
 #search-wrapper button {
-    position: relative;
+    position: absolute;
     top: 13px;
-    right: 35px;
+    right: 6px;
     height: 24px;
     width: 24px;
     background: url('../img/search.png') no-repeat;
     border: none;
 }
 
+.col-xs-2 .btn-group .btn-group button {
+    display: inline;
+}
+
+.col-xs-2 .btn-group .btn-group button p {
+    float: right;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
 .ico-cart {
     display: inline-block;
     vertical-align: middle;
-    height: 24px;
-    width: 24px;
+    height: 18px;
+    width: 18px;
     background-image: url('../img/shopping_cart.png');
     background-size: cover;
+    margin-right: 5px;
+    margin-top: 5px;
 }
 
 /* banner ---------------------------------------------------------------------------------------------------------*/
