@@ -3,6 +3,10 @@
     outline: none;
 }
 
+.try span a:active, .try span a:hover {
+    outline: 0;
+}
+
 #subscribe input:focus {
     outline: none;
     border: none;
@@ -152,7 +156,6 @@ body {
     outline: none;
 }
 
-/*------------------------------------------------------------*/
 .dropdown-submenu {
     position: relative;
 }
@@ -195,7 +198,6 @@ body {
 .btn-group .btn-group .dropdown li.dropdown-submenu>a:hover {
     text-decoration: none;
 }
-/*----------------------------------*/
 
 .col-xs-3:nth-of-type(3) {
     margin-left: 16%;
@@ -274,63 +276,239 @@ body {
 /* banner ---------------------------------------------------------------------------------------------------------*/
 
 .banner {
-    background-color: rgba(239, 239, 234, 0.5);
+    background: #f7f7f7;
+    position: relative;
     font-family: "Open Sans","lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
     font-weight: normal;
     color: #47525d;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    font-size: 14px;
+    line-height: 26px;
 }
 
-.banner h1, .banner h3, .banner h4 {
+#background-container {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#section {
+    margin: 0 auto;
+    max-width: 990px;
+    box-sizing: content-box;
+    position: relative;
+    padding: 20px;
+    min-height: 400px;
+    z-index: 2;
+}
+
+#section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.section-container {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.section-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.hero-header {
+    margin-bottom: 20px;
+    font-size: 47.25px;
+    max-width: 520px;
+    padding-bottom: 0;
     font-weight: 100;
     line-height: 1.3;
+    padding: 0;
 }
 
-.banner h1 {
-    font-size: 48px;
+.hero-sub-header {
+    display: block;
+    margin: 0 auto;
+    max-width: 440px;
+    margin-top: 30px;
+    font-weight: 100;
+    font-size: 21px;
+    padding-bottom: 20px;
+    line-height: 1.5;
 }
 
-.banner a.btn {
+.try {
+    float: left;
+    margin: 30px 0 0 0;
+    text-align: center;
+    background: none;
+    /*margin: 85px auto 55px;*/
+    -webkit-transition: opacity 0.5s ease-in-out 0s;
+    transition: opacity 0.5s ease-in-out 0s;
+}
+
+.try .try-btn {
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 19px 26px;
+    font-size: 21px;
+    line-height: 21px;
     background: #0071e0;
     color: #fff;
-    font-size: 24px;
-    padding: 14px 20px;
-    margin-top: 10%;
+    display: block;
+    text-align: center;
+    border: none;
+    /*margin-top: 20px;*/
+    /*min-height: 54px;
+    min-width: 150px;*/
 }
 
-.banner a.btn:hover {
-    background: rgb(76, 180, 249);
+.try .try-btn:hover {
+    background: #3398ea;
 }
 
-.banner h4 a {
+.try span {
+    text-align: left;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #47525d;
+    margin-bottom: 0;
+    display: block;
+}
+
+.try span a {
     border-bottom: 1px solid #0071e0;
     color: #0071e0;
-}
-
-.banner h4 a:hover {
     text-decoration: none;
-    color: #4CB4F9;
 }
 
-.banner .text {
-    float: left;
-    position: absolute;
-    margin-top: 10%;
-    margin-left: 13%;
-    width: 30vw;
+.try span a:hover {
+    color: #3398ea;
 }
 
-.banner .image {
-    margin-left: 40%;
+@media only screen and (max-width: 1200px) {
+    .hero-header {
+        font-size: 31px;
+        max-width: 350px;
+    }
+    .hero-sub-header {
+        font-size: 16px;
+        max-width: 330px;
+    }
+    .try {
+        margin-top: 40px;
+    }
+    .try .try-btn {
+        font-size: 16px;
+        padding: 14px 40px;
+    }
 }
-
-.banner .text, .banner .image {
-    display: inline;
+@media (max-width:767px) {
+    .hero-header {
+        font-size: 26px;
+    }
+    .hero-header, .hero-sub-header {
+        text-align: center;
+    }
+    .try {
+        float: none;
+    }
+    .try .try-btn {
+        display: inline-block;
+    }
+    .try span {
+        text-align: center;
+    }
+}
+@media (min-width:400px) {
+    #background-container {
+        background-image: url('../img/pc.jpg');
+        background-position: 300px center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #section {
+        text-align: left;
+        padding-top: 45px;
+        padding-bottom: 45px;
+        margin: 0;
+    }
+    .hero-header, .hero-sub-header {
+        width: 300px;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+    .try {
+        float: left;
+    }
+}
+@media (min-width:600px) {
+    #background-container {
+        background-position: 370px center;
+        background-repeat: no-repeat;
+    }
+    .hero-header, .hero-sub-header {
+        width: 400px;
+    }
+}
+@media (min-width:768px) {
+    #section {
+        text-align: left;
+        padding-top: 75px;
+        padding-bottom: 75px;
+        min-height: 550px;
+    }
+    .hero-header, .hero-sub-header {
+        width: 450px;
+    }
+}
+@media (min-width:991px) {
+    #section {
+        position: relative;
+        margin: 0 auto;
+    }
+}
+@media (min-width:1019px) {
+    #background-container {
+        background-size: contain;
+    }
+}
+@media (min-width:1090px) {
+    .banner {
+        background-position: right center;
+    }
+}
+@media (min-width: 1201px) {
+    #background-container {
+        width: 1770px;
+        position: absolute;
+        left: 50%;
+        margin-left: -885px;
+        background-position: right center;
+    }
+}
+@media (min-width: 1771px) {
+    #background-container {
+        width: 100%;
+    }
 }
 
 /* subscribe -----------------------------------------------------------------------------------------------------*/
 
 #subscribe {
-    height: 500px;
+    height: auto;
     background-color: #323a45;
     width: 100%;
 }
@@ -346,6 +524,7 @@ body {
     text-align: center;
     font-size: 30px;
     font-weight: 100;
+    line-height: 2;
     margin-top: 160px;
     margin-bottom: 80px;
 }
@@ -436,6 +615,7 @@ body {
     color: #747c83;
     text-align: center;
     margin-top: 40px;
+    margin-bottom: 140px;
 }
 
 #subscribe h6 a {
@@ -589,6 +769,12 @@ body {
 #container ul li:hover a div:first-of-type {
     opacity: .8;
     transform: scale(1.1, 1.1);
+}
+
+@media (max-width:768px) {
+    #container ul li {
+        width: 100%;
+    }
 }
 
 /* footer ----------------------------------------------------------------------------------------------------*/
@@ -773,4 +959,8 @@ section a:hover, #shop a:hover {
     margin-right: 10px;
     padding-right: 12px;
     color: #666;
+}
+
+@media (max-width:768px) {
+    
 }
