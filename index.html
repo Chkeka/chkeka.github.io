@@ -2,69 +2,176 @@
 
 <html lang="en">
     <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
     
     <body>
         <!-- header------------------------------------------------------------------------------------------------------------------------ -->
         <div id="header" class="container-fluid">
             <div class="row">
-                <div class="col-md-2"><img src="img/microsoft.png"></div>
-                <div class="col-md-4">
+                <div class="col-xs-2"><img src="img/microsoft.png"></div>
+                <div class="col-xs-4">
                     <div class="btn-group" role="group" aria-label="...">
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Store
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Store home</a></li>
-                                <li>
-                                    <a href="#">
-                                        Devices
-                                        <!--<span class="caret"></span>-->
-                                    </a>
-                                    <!--<ul class="dropdown-menu">
-                                        <li><a href="#">Microsoft surface</a></li>
-                                        <li><a href="#">PCs & tablets</a></li>
-                                        <li><a href="#">Xbox</a></li>
-                                        <li><a href="#">Virtual reality</a></li>
-                                        <li><a href="#">Accessories</a></li>
-                                        <li><a href="#">Windows phone</a></li>
-                                        <li><a href="#">Microsoft Band</a></li>
-                                    </ul>-->
-                                </li>
-                                <li><a href="#">Software</a></li>
-                                <li><a href="#">Apps</a></li>
-                                <li><a href="#">Games</a></li>
-                                <li><a href="#">Entertainment</a></li>
-                                <li><a href="#">Business & Education</a></li>
-                                <li><a href="#">Sale</a></li>
-                                <li><a href="#">Find a store</a></li>
-                                <li><a href="#">Gift cards</a></li>
-                            </ul>
+                            <div class="dropdown">
+                                <button id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
+                                    Store <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> 
+                                </button>
+                        		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="store">
+                                    <li><a href="#">Store home</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Devices <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Microsoft surface</a></li>
+                                            <li><a href="#">PCs & tablets</a></li>
+                                            <li><a href="#">Xbox</a></li>
+                                            <li><a href="#">Virtual reality</a></li>
+                                            <li><a href="#">Accessories</a></li>
+                                            <li><a href="#">Windows phone</a></li>
+                                            <li><a href="#">Microsoft Band</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Software <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Office</a></li>
+                                            <li><a href="#">Windows</a></li>
+                                            <li><a href="#">Additional software</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Apps <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">All apps</a></li>
+                                            <li><a href="#">Windows apps</a></li>
+                                            <li><a href="#">Windows phone apps</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Games <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Xbox One games</a></li>
+                                            <li><a href="#">Xbox 360 games</a></li>
+                                            <li><a href="#">PC games</a></li>
+                                            <li><a href="#">Windows games</a></li>
+                                            <li><a href="#">Windows phone games</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Entertainment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">All entertainment</a></li>
+                                            <li><a href="#">Movies & TV</a></li>
+                                            <li><a href="#">Music</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Business & Education <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Business store</a></li>
+                                            <li><a href="#">Education store</a></li>
+                                            <li><a href="#">Developer</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Sale <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Back-to-school essentials</a></li>
+                                            <li><a href="#">Sale</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Find a store</a></li>
+                                    <li><a href="#">Gift cards</a></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Products
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Software & services</a></li>
-                                <li><a href="#">Devices & Xbox</a></li>
-                                <li><a href="#">For business</a></li>
-                                <li><a href="#">For developers & IT pros</a></li>
-                                <li><a href="#">For students & educators</a></li>
-                            </ul>
+                            <div class="dropdown">
+                                <button id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
+                                    Products <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span> 
+                                </button>
+                        		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="products">
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Software & services <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Windows</a></li>
+                                            <li><a href="#">Office</a></li>
+                                            <li><a href="#">Free downloads & security</a></li>
+                                            <li><a href="#">Internet Explorer</a></li>
+                                            <li><a href="#">Microsoft Edge</a></li>
+                                            <li><a href="#">Skype</a></li>
+                                            <li><a href="#">OneNote</a></li>
+                                            <li><a href="#">OneDrive</a></li>
+                                            <li><a href="#">Microsoft Health</a></li>
+                                            <li><a href="#">MSN</a></li>
+                                            <li><a href="#">Bing</a></li>
+                                            <li><a href="#">Microsoft Groove</a></li>
+                                            <li><a href="#">Microsoft Movies & TV</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Devices & Xbox <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">All Microsoft devices</a></li>
+                                            <li><a href="#">Microsoft Surface</a></li>
+                                            <li><a href="#">All Windows PCs & tablets</a></li>
+                                            <li><a href="#">PC accessories</a></li>
+                                            <li><a href="#">Xbox & games</a></li>
+                                            <li><a href="#">Microsoft Band</a></li>
+                                            <li><a href="#">Microsoft Lumia</a></li>
+                                            <li><a href="#">All Windows phones</a></li>
+                                            <li><a href="#">Microsoft HoloLens</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">For business <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Cloud Platform</a></li>
+                                            <li><a href="#">Microsoft Azure</a></li>
+                                            <li><a href="#">Microsoft Dynamics</a></li>
+                                            <li><a href="#">Windows for business</a></li>
+                                            <li><a href="#">Office for business</a></li>
+                                            <li><a href="#">Skype for business</a></li>
+                                            <li><a href="#">Surface for business</a></li>
+                                            <li><a href="#">Enterprise solutions</a></li>
+                                            <li><a href="#">Small business solutions</a></li>
+                                            <li><a href="#">Find a solutions provider</a></li>
+                                            <li><a href="#">Volume Licensing</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">For developers & IT pros <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Develop Windows apps</a></li>
+                                            <li><a href="#">Microsoft Azure</a></li>
+                                            <li><a href="#">MSDN</a></li>
+                                            <li><a href="#">TechNet</a></li>
+                                            <li><a href="#">Visual Studio</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">For students & educators <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a tabindex="-1" href="#">Office for students</a></li>
+                                            <li><a href="#">OneNote in classrom</a></li>
+                                            <li><a href="#">Shop PCs & tablets perfect for<br>students</a></li>
+                                            <li><a href="#">Microsoft in Education</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-default">Support</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-md-offset-1">
+                <div class="col-xs-3 col-xs-offset-1">
                     <form>
                         <div id="search-wrapper">
                             <!--<label for="search"></label>-->
@@ -73,11 +180,12 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-2">
+                <div class="col-xs-2">
                     <div class="btn-group" role="group" aria-label="...">
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-default">
                                 <i class="ico-cart"></i>
+                                <p>0</p>
                             </button>
                         </div>
                         <div class="btn-group" role="group">
@@ -93,7 +201,7 @@
                     <h1>Collaborate faster and more securely</h1>
                     <h3>Boost business productivity with the ultimate file saving and sharing tool that employees love and IT admins trust.</h3>
                     <a class="btn">Try free for 30 days</a>
-                    <h4>or <a href="#0">purchase now</a></h4>
+                    <h4>or <a href="#">purchase now</a></h4>
                 </div>
                 <div class="image">
                     <img src="img/pc.jpg">
@@ -120,13 +228,13 @@
                 </div>
                 <button type="submit" class="btn btn-default">GET STARTED - FREE FOREVER!</button>
             </form></div>
-            <div><h6>By clicking "Get Started - Free Forever!" I agree to InVision's <a href="#0">Terms of Service.</a></h6></div>
+            <div><h6>By clicking "Get Started - Free Forever!" I agree to InVision's <a href="#">Terms of Service.</a></h6></div>
         </div>
         <!--container--------------------------------------------------------------------------------------------------------------------------- -->
         <div id="container">
             <ul>
                 <li id="valkyrie">
-                    <a href="#0">
+                    <a href="#">
                         <div></div>
                         <div>
                             <h4>FEATURED CONTENT</h4>
@@ -135,7 +243,7 @@
                     </a>
                 </li>
                 <li id="lucky">
-                    <a href="#0">
+                    <a href="#">
                         <div></div>
                         <div>
                             <h4>INCLUDED WITH ALL RIFT PURCHASES</h4>
@@ -144,7 +252,7 @@
                     </a>
                 </li>
                 <li id="touch">
-                    <a href="#0">
+                    <a href="#">
                         <div></div>
                         <div>
                             <h4>FETURED STORY</h4>
@@ -165,34 +273,34 @@
                             </label>
                             <ul class="section-list">
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Mac</a>
+                                    <a class="section-link" href="#">Mac</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">iPad</a>
+                                    <a class="section-link" href="#">iPad</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">iPhone</a>
+                                    <a class="section-link" href="#">iPhone</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Watch</a>
+                                    <a class="section-link" href="#">Watch</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">TV</a>
+                                    <a class="section-link" href="#">TV</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Music</a>
+                                    <a class="section-link" href="#">Music</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">iTunes</a>
+                                    <a class="section-link" href="#">iTunes</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">iPod</a>
+                                    <a class="section-link" href="#">iPod</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Accessories</a>
+                                    <a class="section-link" href="#">Accessories</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Gift Cards</a>
+                                    <a class="section-link" href="#">Gift Cards</a>
                                 </li>
                             </ul>
                         </div>
@@ -204,34 +312,34 @@
                             </label>
                             <ul class="section-list">
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Find a Store</a>
+                                    <a class="section-link" href="#">Find a Store</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Genius Bar</a>
+                                    <a class="section-link" href="#">Genius Bar</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Workshops and Learning</a>
+                                    <a class="section-link" href="#">Workshops and Learning</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Youth Programs</a>
+                                    <a class="section-link" href="#">Youth Programs</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Apple Store App</a>
+                                    <a class="section-link" href="#">Apple Store App</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Refurbished</a>
+                                    <a class="section-link" href="#">Refurbished</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Financing</a>
+                                    <a class="section-link" href="#">Financing</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Reuse and Recycling</a>
+                                    <a class="section-link" href="#">Reuse and Recycling</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Order Status</a>
+                                    <a class="section-link" href="#">Order Status</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Shopping Help</a>
+                                    <a class="section-link" href="#">Shopping Help</a>
                                 </li>
                             </ul>
                         </div>
@@ -243,10 +351,10 @@
                             </label>
                             <ul class="section-list">
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Apple and Education</a>
+                                    <a class="section-link" href="#">Apple and Education</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Shop for College</a>
+                                    <a class="section-link" href="#">Shop for College</a>
                                 </li>
                             </ul>
                         </div>
@@ -256,10 +364,10 @@
                             </label>
                             <ul class="section-list">
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Apple and Business</a>
+                                    <a class="section-link" href="#">Apple and Business</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Shop for Business</a>
+                                    <a class="section-link" href="#">Shop for Business</a>
                                 </li>
                             </ul>
                         </div>
@@ -271,13 +379,13 @@
                             </label>
                             <ul class="section-list">
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Manage Your Apple ID</a>
+                                    <a class="section-link" href="#">Manage Your Apple ID</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Apple Store Account</a>
+                                    <a class="section-link" href="#">Apple Store Account</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">iCloud.com</a>
+                                    <a class="section-link" href="#">iCloud.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -287,22 +395,22 @@
                             </label>
                             <ul class="section-list">
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Environment</a>
+                                    <a class="section-link" href="#">Environment</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Supplier Responsibility</a>
+                                    <a class="section-link" href="#">Supplier Responsibility</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Accessibility</a>
+                                    <a class="section-link" href="#">Accessibility</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Privacy</a>
+                                    <a class="section-link" href="#">Privacy</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Inclusion and Diversity</a>
+                                    <a class="section-link" href="#">Inclusion and Diversity</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Education</a>
+                                    <a class="section-link" href="#">Education</a>
                                 </li>
                             </ul>
                         </div>
@@ -314,22 +422,22 @@
                             </label>
                             <ul class="section-list">
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Apple Info</a>
+                                    <a class="section-link" href="#">Apple Info</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Newsroom</a>
+                                    <a class="section-link" href="#">Newsroom</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Job Opportunities</a>
+                                    <a class="section-link" href="#">Job Opportunities</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Investors</a>
+                                    <a class="section-link" href="#">Investors</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Events</a>
+                                    <a class="section-link" href="#">Events</a>
                                 </li>
                                 <li class="section-item">
-                                    <a class="section-link" href="#0">Contact Apple</a>
+                                    <a class="section-link" href="#">Contact Apple</a>
                                 </li>
                             </ul>
                         </div>
@@ -339,16 +447,16 @@
                 <section>
                     <div id="shop">
                          More ways to shop: Visit an 
-                        <a href="#0">Apple Store</a>
+                        <a href="#">Apple Store</a>
                         , 
                         <span>
                             call 1-800-MY-APPLE, or 
-                            <a href="#0">find a reseller</a>
+                            <a href="#">find a reseller</a>
                         </span>
                         . 
                     </div>
                     <div id="locale">
-                        <a id="locale-link" href="#0">
+                        <a id="locale-link" href="#">
                             <span id="flag"></span>
                             United States
                         </a>
@@ -356,11 +464,11 @@
                     <div id="legal">
                         <div id="copyright">Copyright &copy; 2016 Apple Inc. All rights reserved.</div>
                         <div id="legal-links">
-                            <a class="legal-link" href="#0">Pravicy Policy</a>
-                            <a class="legal-link" href="#0">Terms of Use</a>
-                            <a class="legal-link" href="#0">Sales and Refunds</a>
-                            <a class="legal-link" href="#0">Legal</a>
-                            <a class="legal-link" href="#0">Site Map</a>
+                            <a class="legal-link" href="#">Pravicy Policy</a>
+                            <a class="legal-link" href="#">Terms of Use</a>
+                            <a class="legal-link" href="#">Sales and Refunds</a>
+                            <a class="legal-link" href="#">Legal</a>
+                            <a class="legal-link" href="#">Site Map</a>
                         </div>
                     </div>
                 </section>
@@ -369,5 +477,6 @@
         
         <script src="js/jquery-2.1.4.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
