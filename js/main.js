@@ -35,4 +35,53 @@ $(document).ready(function() {
             }
         });
     });
+    
+    if ($(window).width() < 1000) {
+        $('.search-container').addClass('collapsed');
+        $('.search-container.collapsed').html('<button class="btn btn-default" type="submit"><img src="../img/search.png"></button>');
+        $('.search-container.collapsed button').on('click', function() {
+            if (!$('.search-container').next().hasClass('search-toggle')) {
+               $('.search-container').after('<div class="search-toggle"></div>');
+               $('.search-toggle').html('<form class="search-expanded"></form>');
+               $('.search-expanded').html('<div class="search-expanded-wrapper"></div>');
+               $('.search-expanded-wrapper').html('<input type="search" placeholder="Search Microsoft.com" max-length="200" tabindex="30"></input>');
+               $('.search-expanded-wrapper input').after('<button type="submit" tabindex="40"></button>');
+            }
+            else {
+                $('.search-toggle').remove();
+            }
+        });
+    }
+    
+    if ($(window).width() < 899) {
+        $('.dropdown-submenu').off("mouseover");
+        $('.menu-container').addClass('collapsed');
+        $('.sign-cart>.btn-group>.btn-group:first-of-type').after('<div class="btn-group" role="group" id="nav-toggle"></div>');
+        $('#nav-toggle').html('<button type="button" class="btn btn-default"></button>');
+        $('#nav-toggle button').html('<span id="trigger"></span>');
+        $('#nav-toggle button').on('click', function() {
+            if (!$('.menu-container').hasClass('opened')) {
+                $('body').css('overflow-y', 'hidden');
+                $('.menu-container').addClass('opened');
+                $('#header .menu-container.collapsed.opened .dropdown-submenu a').attr('data-toggle', 'dropdown');
+                $('#header .menu-container.collapsed.opened .dropdown-submenu').removeClass('dropdown-submenu').addClass('dropdown');
+                $('.menu-container.collapsed.opened .dropdown>.dropdown-menu>.dropdown').on('click', function() {
+                    //$(this).find('.dropdown-menu').toggle();//css('display', 'block');
+                });
+            }
+            else {
+                $('.menu-container').removeClass('opened');
+                $('body').css('overflow-y', 'scroll');
+            }
+        });
+    }
+    
+    $('.column-section').on('click', function() {
+        if (!$(this).hasClass('expanded')) {
+            $(this).addClass('expanded');
+        }
+        else {
+            $(this).removeClass('expanded');
+        }
+    });
 });
