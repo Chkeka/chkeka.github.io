@@ -1,491 +1,194 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Piano</title>
+    <link rel="SHORTCUT ICON" href="img/favicon.jpg" type="image/x-icon">
+    <link href="piano.css" rel="StyleSheet" type="text/css" />
+    <script src="lib/jquery-2.2.3.js" type="text/javascript"></script>
+    <script src="touchEvents.js" type="text/javascript"></script>
+    <script src="audioManager.js" type="text/javascript"></script>
+    <script src="piano.js" type="text/javascript"></script>
+    <script src="sheet.js" type="text/javascript"></script>
+    <script src="lib/intro.min.js" type="text/javascript"></script>
+    <link href="lib/introjs.min.css" rel="StyleSheet" type="text/css" />
+    <script src="lib/html2canvas.js" type="text/javascript"></script>
+    <script src="lib/html2canvas.svg.js" type="text/javascript"></script>
+    <script src="lib/canvas2image.js" type="text/javascript"></script>
+    <script src="lib/download.js" type="text/javascript"></script>
+    <script src="lib/canvas-to-blob.min.js" type="text/javascript"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <!--<header>Piano</header>-->
+        <div id="main">
+            <div class="keyboard">
+                <div class="backboard"></div>
+                <div class="keys">
+                    <div data-note="0A" class="piano-key white" title="A0"></div>
+                    <div data-note="0A#" class="piano-key black" title="A#0"></div>
+                    <div data-note="0H" class="piano-key white" title="H0"></div>
+                    <div data-note="1C" class="piano-key white" title="C1"></div>
+                    <div data-note="1C#" class="piano-key black" title="C#1"></div>
+                    <div data-note="1D" class="piano-key white" title="D1"></div>
+                    <div data-note="1D#" class="piano-key black" title="D#1"></div>
+                    <div data-note="1E" class="piano-key white" title="E1"></div>
+                    <div data-note="1F" class="piano-key white" title="F1"></div>
+                    <div data-note="1F#" class="piano-key black" title="F#1"></div>
+                    <div data-note="1G" class="piano-key white" title="G1"></div>
+                    <div data-note="1G#" class="piano-key black" title="G#1"></div>
+                    <div data-note="1A" class="piano-key white" title="A1"></div>
+                    <div data-note="1A#" class="piano-key black" title="A#1"></div>
+                    <div data-note="1H" class="piano-key white" title="H1"></div>
+                    <div data-note="2C" class="piano-key white" title="C2"></div>
+                    <div data-note="2C#" class="piano-key black" title="C#2"></div>
+                    <div data-note="2D" class="piano-key white" title="D2"></div>
+                    <div data-note="2D#" class="piano-key black" title="D#2"></div>
+                    <div data-note="2E" class="piano-key white" title="E2"></div>
+                    <div data-note="2F" class="piano-key white" title="F2"></div>
+                    <div data-note="2F#" class="piano-key black" title="F#2"></div>
+                    <div data-note="2G" class="piano-key white" title="G2"></div>
+                    <div data-note="2G#" class="piano-key black" title="G#2"></div>
+                    <div data-note="2A" class="piano-key white" title="A2"></div>
+                    <div data-note="2A#" class="piano-key black" title="A#2"></div>
+                    <div data-note="2H" class="piano-key white" title="H2"></div>
+                    <div data-note="3C" class="piano-key white" title="C3"></div>
+                    <div data-note="3C#" class="piano-key black" title="C#3"></div>
+                    <div data-note="3D" class="piano-key white" title="D3"></div>
+                    <div data-note="3D#" class="piano-key black" title="D#3"></div>
+                    <div data-note="3E" class="piano-key white" title="E3"></div>
+                    <div data-note="3F" class="piano-key white" title="F3"></div>
+                    <div data-note="3F#" class="piano-key black" title="F#3"></div>
+                    <div data-note="3G" class="piano-key white" title="G3"></div>
+                    <div data-note="3G#" class="piano-key black" title="G#3"></div>
+                    <div data-note="3A" class="piano-key white" title="A3"></div>
+                    <div data-note="3A#" class="piano-key black" title="A#3"></div>
+                    <div data-note="3H" class="piano-key white" title="H3"></div>
+                    <div data-note="4C" class="piano-key white" title="C4"></div>
+                    <div data-note="4C#" class="piano-key black" title="C#4"></div>
+                    <div data-note="4D" class="piano-key white" title="D4"></div>
+                    <div data-note="4D#" class="piano-key black" title="D#4"></div>
+                    <div data-note="4E" class="piano-key white" title="E4"></div>
+                    <div data-note="4F" class="piano-key white" title="F4"></div>
+                    <div data-note="4F#" class="piano-key black" title="F#4"></div>
+                    <div data-note="4G" class="piano-key white" title="G4"></div>
+                    <div data-note="4G#" class="piano-key black" title="G#4"></div>
+                    <div data-note="4A" class="piano-key white" title="A4"></div>
+                    <div data-note="4A#" class="piano-key black" title="A#4"></div>
+                    <div data-note="4H" class="piano-key white" title="H4"></div>
+                    <div data-note="5C" class="piano-key white" title="C5"></div>
+                    <div data-note="5C#" class="piano-key black" title="C#5"></div>
+                    <div data-note="5D" class="piano-key white" title="D5"></div>
+                    <div data-note="5D#" class="piano-key black" title="D#5"></div>
+                    <div data-note="5E" class="piano-key white" title="E5"></div>
+                    <div data-note="5F" class="piano-key white" title="F5"></div>
+                    <div data-note="5F#" class="piano-key black" title="F#5"></div>
+                    <div data-note="5G" class="piano-key white" title="G5"></div>
+                    <div data-note="5G#" class="piano-key black" title="G#5"></div>
+                    <div data-note="5A" class="piano-key white" title="A5"></div>
+                    <div data-note="5A#" class="piano-key black" title="A#5"></div>
+                    <div data-note="5H" class="piano-key white" title="H5"></div>
+                    <div data-note="6C" class="piano-key white" title="C6"></div>
+                    <div data-note="6C#" class="piano-key black" title="C#6"></div>
+                    <div data-note="6D" class="piano-key white" title="D6"></div>
+                    <div data-note="6D#" class="piano-key black" title="D#6"></div>
+                    <div data-note="6E" class="piano-key white" title="E6"></div>
+                    <div data-note="6F" class="piano-key white" title="F6"></div>
+                    <div data-note="6F#" class="piano-key black" title="F#6"></div>
+                    <div data-note="6G" class="piano-key white" title="G6"></div>
+                    <div data-note="6G#" class="piano-key black" title="G#6"></div>
+                    <div data-note="6A" class="piano-key white" title="A6"></div>
+                    <div data-note="6A#" class="piano-key black" title="A#6"></div>
+                    <div data-note="6H" class="piano-key white" title="H6"></div>
+                    <div data-note="7C" class="piano-key white" title="C7"></div>
+                    <div data-note="7C#" class="piano-key black" title="C#7"></div>
+                    <div data-note="7D" class="piano-key white" title="D7"></div>
+                    <div data-note="7D#" class="piano-key black" title="D#7"></div>
+                    <div data-note="7E" class="piano-key white" title="E7"></div>
+                    <div data-note="7F" class="piano-key white" title="F7"></div>
+                    <div data-note="7F#" class="piano-key black" title="F#7"></div>
+                    <div data-note="7G" class="piano-key white" title="G7"></div>
+                    <div data-note="7G#" class="piano-key black" title="G#7"></div>
+                    <div data-note="7A" class="piano-key white" title="A7"></div>
+                    <div data-note="7A#" class="piano-key black" title="A#7"></div>
+                    <div data-note="7H" class="piano-key white" title="H7"></div>
+                    <div data-note="8C" class="piano-key white" title="C8"></div>
+                </div>
+            </div>
+            <div class="tools">
+                <div class="symb" data-intro='Do not forget to choose a note value' data-step='4'>
+                    <div class="note">
+                        <button id="whole_note" type="button"></button>
+                        <button id="half_note" type="button"></button>
+                        <button id="quarter_note" type="button"></button>
+                        <button id="eighth_note" type="button"></button>
+                        <button id="sixteenth_note" type="button"></button>
+                    </div>
+                    <div class="pause">
+                        <button id="whole_pause" type="button"></button>
+                        <button id="half_pause" type="button"></button>
+                        <button id="quarter_pause" type="button"></button>
+                        <button id="eighth_pause" type="button"></button>
+                        <button id="sixteenth_pause" type="button"></button>
+                    </div>
+                </div>
+                <div class="clef" data-intro='Choose a clef' data-step='1'>
+                    <button id="g_key" type="button"></button>
+                    <button id="f_key" type="button"></button>
+                </div>
+                <div class="func">
+                    <button id="undo" type="button"></button>
+                    <button id="play" type="button"></button>
+                </div>
+                <div class="signatures">
+                    <div id="keys">
+                        <!--<p id="key_p">Choose a key:</p>-->
+                        <select id="key_control" name="key" style="width: 177px" data-intro='Choose a key' data-step='2'>
+                            <option disabled selected value="">Choose a key</option>
+                            <option>C - a</option>
+                            <option>G - e</option>
+                            <option>D - h</option>
+                            <option>A - f-sharp</option>
+                            <option>E - c-sharp</option>
+                            <option>H - g-sharp</option>
+                            <option>F-sharp - d-sharp</option>
+                            <option>C-sharp - a-sharp</option>
+                            <option>F - d</option>
+                            <option>B - g</option>
+                            <option>E-flat - c</option>
+                            <option>A-flat - f</option>
+                            <option>D-flat - b</option>
+                            <option>G-flat - e-flat</option>
+                            <option>C-flat - a-flat</option>
+                        </select>
+                    </div>
+                    <div id="meters">
+                        <!--<p id="meter_p">Choose a time signature:</p>-->
+                        <select id="meter" name="meter" data-intro='Choose a time signature' data-step='3'>
+                            <option disabled selected value="">Choose a time signature</option>
+                            <option>2/4</option>
+                            <option>3/4</option>
+                            <option>4/4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--<div id="canvas-wrap">
+                <canvas width="1189" height="165"></canvas>-->
+            <div id="sheet">
+                <div class="stave" id="1">
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+        <footer>
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700&amp;subset=latin,latin-ext" type="text/css" rel="stylesheet">
-    </head>
-    
-    <body>
-        <!-- header------------------------------------------------------------------------------------------------------------------------ -->
-        <div id="header" class="container-fluid">
-            <div class="header-container">
-                <div class="logo">
-                    <a href="#">
-                        <img src="img/microsoft.png">
-                    </a>
-                </div>
-                <div class="menu-container">
-                    <div class="btn-group" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                            <div class="dropdown">
-                                <button id="dLabel1" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
-                                    Store <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> 
-                                </button>
-                        		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="store">
-                                    <li><a href="#">Store home</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Devices <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Microsoft surface</a></li>
-                                            <li><a href="#">PCs & tablets</a></li>
-                                            <li><a href="#">Xbox</a></li>
-                                            <li><a href="#">Virtual reality</a></li>
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Windows phone</a></li>
-                                            <li><a href="#">Microsoft Band</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Software <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Office</a></li>
-                                            <li><a href="#">Windows</a></li>
-                                            <li><a href="#">Additional software</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Apps <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">All apps</a></li>
-                                            <li><a href="#">Windows apps</a></li>
-                                            <li><a href="#">Windows phone apps</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Games <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Xbox One games</a></li>
-                                            <li><a href="#">Xbox 360 games</a></li>
-                                            <li><a href="#">PC games</a></li>
-                                            <li><a href="#">Windows games</a></li>
-                                            <li><a href="#">Windows phone games</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Entertainment <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">All entertainment</a></li>
-                                            <li><a href="#">Movies & TV</a></li>
-                                            <li><a href="#">Music</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Business & Education <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Business store</a></li>
-                                            <li><a href="#">Education store</a></li>
-                                            <li><a href="#">Developer</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Sale <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Back-to-school essentials</a></li>
-                                            <li><a href="#">Sale</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Find a store</a></li>
-                                    <li><a href="#">Gift cards</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <div class="dropdown">
-                                <button id="dLabel2" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">
-                                    Products <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span> 
-                                </button>
-                        		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu" id="products">
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Software & services <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Windows</a></li>
-                                            <li><a href="#">Office</a></li>
-                                            <li><a href="#">Free downloads & security</a></li>
-                                            <li><a href="#">Internet Explorer</a></li>
-                                            <li><a href="#">Microsoft Edge</a></li>
-                                            <li><a href="#">Skype</a></li>
-                                            <li><a href="#">OneNote</a></li>
-                                            <li><a href="#">OneDrive</a></li>
-                                            <li><a href="#">Microsoft Health</a></li>
-                                            <li><a href="#">MSN</a></li>
-                                            <li><a href="#">Bing</a></li>
-                                            <li><a href="#">Microsoft Groove</a></li>
-                                            <li><a href="#">Microsoft Movies & TV</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Devices & Xbox <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">All Microsoft devices</a></li>
-                                            <li><a href="#">Microsoft Surface</a></li>
-                                            <li><a href="#">All Windows PCs & tablets</a></li>
-                                            <li><a href="#">PC accessories</a></li>
-                                            <li><a href="#">Xbox & games</a></li>
-                                            <li><a href="#">Microsoft Band</a></li>
-                                            <li><a href="#">Microsoft Lumia</a></li>
-                                            <li><a href="#">All Windows phones</a></li>
-                                            <li><a href="#">Microsoft HoloLens</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">For business <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Cloud Platform</a></li>
-                                            <li><a href="#">Microsoft Azure</a></li>
-                                            <li><a href="#">Microsoft Dynamics</a></li>
-                                            <li><a href="#">Windows for business</a></li>
-                                            <li><a href="#">Office for business</a></li>
-                                            <li><a href="#">Skype for business</a></li>
-                                            <li><a href="#">Surface for business</a></li>
-                                            <li><a href="#">Enterprise solutions</a></li>
-                                            <li><a href="#">Small business solutions</a></li>
-                                            <li><a href="#">Find a solutions provider</a></li>
-                                            <li><a href="#">Volume Licensing</a></li>
-                                            
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">For developers & IT pros <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Develop Windows apps</a></li>
-                                            <li><a href="#">Microsoft Azure</a></li>
-                                            <li><a href="#">MSDN</a></li>
-                                            <li><a href="#">TechNet</a></li>
-                                            <li><a href="#">Visual Studio</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">For students & educators <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a tabindex="-1" href="#">Office for students</a></li>
-                                            <li><a href="#">OneNote in classrom</a></li>
-                                            <li><a href="#">Shop PCs & tablets perfect for<br>students</a></li>
-                                            <li><a href="#">Microsoft in Education</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button id="dLabel3" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="#">Support</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="sign-cart">
-                    <div class="btn-group" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default">
-                                <i class="ico-cart"></i>
-                                <p>0</p>
-                            </button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default"><a href='#'>Sign in</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="search-container">
-                    <form>
-                        <div id="search-wrapper">
-                            <input type="search" placeholder="Search Microsoft.com" id="search">
-                            <button class="btn btn-default" type="submit"></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!--banner----------------------------------------------------------------------------------------------------------------------------- -->
-        <div class="banner">
-            <div id="background-container"></div>
-            <div id="section">
-                <div class="section-container">
-                    <h1 class="hero-header">Collaborate faster and more securely</h1>
-                    <h2 class="hero-sub-header">Boost business productivity with the ultimate file saving and sharing tool that employees love and IT admins trust.</h2>
-                    <div class="try">
-                        <a href="#" class="try-btn btn btn-primary btn-lg">Try free for 30 days</a>
-                        <span>or <a href="#">purchase now</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--subscribe-------------------------------------------------------------------------------------------------------------------------- -->
-        <div id="subscribe" class="container-fluid">
-            <div><h2>Join over 2 million designers already using InVision. Get InVision <strong>free</strong> forever!</h2></div>
-            <div>
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <i class="ico-user"></i>
-                        <input type="text" class="form-control" id="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <i class="ico-email"></i>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Create a Password</label>
-                        <i class="ico-password"></i>
-                        <input type="password" class="form-control" id="password">
-                    </div>
-                    <button type="submit" class="btn btn-default">GET STARTED - FREE FOREVER!</button>
-                </form>
-            </div>
-            <div><h6>By clicking "Get Started - Free Forever!" I agree to InVision's <a href="#">Terms of Service.</a></h6></div>
-        </div>
-        <!--container--------------------------------------------------------------------------------------------------------------------------- -->
-        <div id="container">
-            <ul>
-                <li id="valkyrie">
-                    <a href="#">
-                        <div></div>
-                        <div>
-                            <h4>FEATURED CONTENT</h4>
-                            <h3>EVE: Valkyrie</h3>
-                        </div>
-                    </a>
-                </li>
-                <li id="lucky">
-                    <a href="#">
-                        <div></div>
-                        <div>
-                            <h4>INCLUDED WITH ALL RIFT PURCHASES</h4>
-                            <h3>Lucky's Tale</h3>
-                        </div>
-                    </a>
-                </li>
-                <li id="touch">
-                    <a href="#">
-                        <div></div>
-                        <div>
-                            <h4>FETURED STORY</h4>
-                            <h3>Announcing Oculus Connect 3 and Rift Availability Update</h3>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- footer--------------------------------------------------------------------------------------------------------------------------- -->
-        <footer id="footer">
-            <div id="f-content">
-                <nav id="navigation">
-                    <div class="directory-column">
-                        <!--<input class="column-section-state" type="checkbox" id="column-section-state">-->
-                        <div class="column-section">
-                            <label class="section-label">
-                                <h3 class="section-title">Shop and Learn</h3>
-                            </label>
-                            <ul class="section-list">
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Mac</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">iPad</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">iPhone</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Watch</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">TV</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Music</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">iTunes</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">iPod</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Accessories</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Gift Cards</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="directory-column">
-                        <div class="column-section">
-                            <label class="section-label">
-                                <h3 class="section-title">Apple Store</h3>
-                            </label>
-                            <ul class="section-list">
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Find a Store</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Genius Bar</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Workshops and Learning</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Youth Programs</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Apple Store App</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Refurbished</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Financing</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Reuse and Recycling</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Order Status</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Shopping Help</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="directory-column">
-                        <div class="column-section">
-                            <label class="section-label">
-                                <h3 class="section-title">For Education</h3>
-                            </label>
-                            <ul class="section-list">
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Apple and Education</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Shop for College</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="column-section">
-                            <label class="section-label">
-                                <h3 class="section-title">For Business</h3>
-                            </label>
-                            <ul class="section-list">
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Apple and Business</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Shop for Business</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="directory-column">
-                        <div class="column-section">
-                            <label class="section-label">
-                                <h3 class="section-title">Account</h3>
-                            </label>
-                            <ul class="section-list">
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Manage Your Apple ID</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Apple Store Account</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">iCloud.com</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="column-section">
-                            <label class="section-label">
-                                <h3 class="section-title">Apple Values</h3>
-                            </label>
-                            <ul class="section-list">
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Environment</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Supplier Responsibility</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Accessibility</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Privacy</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Inclusion and Diversity</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Education</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="directory-column">
-                        <div class="column-section">
-                            <label class="section-label">
-                                <h3 class="section-title">About Apple</h3>
-                            </label>
-                            <ul class="section-list">
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Apple Info</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Newsroom</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Job Opportunities</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Investors</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Events</a>
-                                </li>
-                                <li class="section-item">
-                                    <a class="section-link" href="#">Contact Apple</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                
-                <section>
-                    <div id="shop">
-                         More ways to shop: Visit an 
-                        <a href="#">Apple Store</a>
-                        , 
-                        <span>
-                            call 1-800-MY-APPLE, or 
-                            <a href="#">find a reseller</a>
-                        </span>
-                        . 
-                    </div>
-                    <div id="locale">
-                        <a id="locale-link" href="#">
-                            <span id="flag"></span>
-                            United States
-                        </a>
-                    </div>
-                    <div id="legal">
-                        <div id="copyright">Copyright &copy; 2016 Apple Inc. All rights reserved.</div>
-                        <div id="legal-links">
-                            <a class="legal-link" href="#">Pravicy Policy</a>
-                            <a class="legal-link" href="#">Terms of Use</a>
-                            <a class="legal-link" href="#">Sales and Refunds</a>
-                            <a class="legal-link" href="#">Legal</a>
-                            <a class="legal-link" href="#">Site Map</a>
-                        </div>
-                    </div>
-                </section>
-            </div>
         </footer>
-        
-        <script src="js/jquery-2.1.4.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+    </div>
+</body>
 </html>
